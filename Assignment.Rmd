@@ -7,20 +7,31 @@ head(gene) # Show a table of values for the first six genes
 
 # Ques 2: Make a new column which is the mean of the other columns. Show a table of values for the first six genes.
 
-gene$means <- rowMeans(gene)
+gene$means <- rowmeans(gene)
 head(gene)
-gene
-
 
 # Ques 3: List the 10 genes with the highest mean expression
+order(gene$mean)
+order(-gene$mean)
+
 
 gene_mean <- gene[order(gene$Mean), ]
 head(gene_mean)
 
 # Ques 4: Determine the number of genes with a mean <10
+
+ 
 # Ques 5: Make a histogram plot of the mean values in png format and paste it into your report.
+hist(gene$mean)
+hist(gene$mean, breaks = 20)
+
+
+
+
+
 
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
 y <- read.table("growth_data.csv")
 head(y)
 str(y)
+
