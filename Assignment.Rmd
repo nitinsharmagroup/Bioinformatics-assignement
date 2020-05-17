@@ -12,7 +12,7 @@ gene$Means <- rowMeans(gene)
 head(gene)
 str(gene)
 str(gene)
-
+str(gene)
 
 # Ques 3: List the 10 genes with the highest mean expression
 order(gene$mean)
