@@ -22,7 +22,7 @@ gene_mean <- gene[order(gene$Mean), ]
 head(gene_mean)
 
 # Ques 4: Determine the number of genes with a mean <10
-
+head(gene_mean)
  
 # Ques 5: Make a histogram plot of the mean values in png format and paste it into your report.
 hist(gene$mean)
