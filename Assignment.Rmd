@@ -13,6 +13,7 @@ head(gene)
 str(gene)
 
 
+
 # Ques 3: List the 10 genes with the highest mean expression
 order(gene$mean)
 order(-gene$mean)
