@@ -40,4 +40,28 @@ y <- read.table("growth_data.csv")
 head(y)
 str(y)
 
+#ques 7: Calculate the mean and standard deviation of tree circumferance at the start and end of the study at both sides.
+NE <-subset(y,Site=="northeast")
+head(NE)
+tail(NE)
+str(NE)
+mean(NE$Circumf_2004_cm)
+mean(NE$Circumf_2019_cm)
+sd(NE$Circumf_2004_cm)
+sd(NE$Circumf_2019_cm)
+
+
+# ques 8: make a box plot of tree circumferance at the start and end of the study of both sides.
+SW <- subset(y,Site=="southwest")
+head(SW)
+tail(SW)
+str(SW)
+mean(SW$Circumf_2004_cm)
+mean(SW$Circumf_2019_cm)
+sd(SW$Circumf_2004_cm)
+sd(SW$Circumf_2019_cm)
+
+
+
+
 
