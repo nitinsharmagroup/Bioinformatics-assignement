@@ -13,11 +13,11 @@ head(gene)
 
 
 # Ques 3: List the 10 genes with the highest mean expression
-order(gene$mean)
-order(-gene$mean)
+order(gene$Mean)
+gene[order(gene$Mean), ]
+gene[order(-gene$Mean), ]
 
-gene_mean <- gene[order(gene$Mean), ]
-head(gene_mean)
+
 
 # Ques 4: Determine the number of genes with a mean <10
 head(gene_mean)
