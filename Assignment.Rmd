@@ -40,8 +40,8 @@ y <- read.table("growth_data.csv")
 head(y)
 str(y)
 
-#ques 7: Calculate the mean and standard deviation of tree circumferance at the start and end of the study at both sides.
-NE <-subset(y,Site=="northeast")
+# ques 7: Calculate the mean and standard deviation of tree circumferance at the start and end of the study at both sides.
+NE <-subset (y,Site=="northeast")
 head(NE)
 tail(NE)
 str(NE)
