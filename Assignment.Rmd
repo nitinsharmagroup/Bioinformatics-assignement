@@ -20,8 +20,7 @@ gene[order(-gene$Mean), ]
 head(gene[order(-gene$Mean), ])
 head(gene[order(-gene$Mean), ], 10)
 
-
-# ques 4: Determine the number of genes with a mean <10
+# Ques 4: Determine the number of genes with a mean <10
 subset(gene,Mean<10)
 filtered <- subset(gene,Mean<10)
 nrow(filtered)
@@ -29,4 +28,9 @@ nrow(filtered)
 # Ques 5: Make a histogram plot of the mean values in png format and paste it into your report.
 hist(gene$mean)
 hist(gene$mean, breaks = 20)
+
+download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
+y <- read.table("growth_data.csv")
+head(y)
+str(y)
 
