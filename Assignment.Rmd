@@ -41,7 +41,6 @@ head(gd)
 str(gd)
 colnames(gd)
 
-
 # ques 7: Calculate the mean and standard deviation of tree circumferance at the start and end of the study at both sides.
 NE <-subset (y,Site=="northeast")
 head(NE)
