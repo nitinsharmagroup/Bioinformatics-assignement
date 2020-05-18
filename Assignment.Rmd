@@ -22,8 +22,11 @@ head(gene[order(-gene$Mean), ], 10)
 
 
 # ques 4: Determine the number of genes with a mean <10
-subset(gene,mean<10)
-filtered <-subset(gene,mean<10)
+subset(gene,Mean<10)
+filtered <- subset(gene,Mean<10)
 nrow(filtered)
 
+# Ques 5: Make a histogram plot of the mean values in png format and paste it into your report.
+hist(gene$mean)
+hist(gene$mean, breaks = 20)
 
