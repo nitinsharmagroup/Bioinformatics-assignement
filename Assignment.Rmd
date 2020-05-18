@@ -36,8 +36,10 @@ str(y)
 
 # Ques 6: Import this csv file into an R object. What are the column names?
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
-y <- read.table("growth_data.csv")
-head(y)
-str(y)
+gd <- read.table("growth_data.csv")
+head(gd)
+str(gd)
+colnames(gd)
+
 
 
