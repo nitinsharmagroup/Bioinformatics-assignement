@@ -10,9 +10,7 @@ str(gene)
 gene <- read.table("gene_expression.tsv" , header = TRUE, stringsAsFactors = FALSE, row.names = 1)
 gene$Means <- rowMeans(gene)
 head(gene)
-str(gene)
-str(gene)
-str(gene)
+
 
 # Ques 3: List the 10 genes with the highest mean expression
 order(gene$mean)
