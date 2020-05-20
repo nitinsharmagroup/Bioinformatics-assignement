@@ -26,41 +26,52 @@ filtered <- subset(gene,Mean<10)
 nrow(filtered)
 
 # Ques 5: Make a histogram plot of the mean values in png format and paste it into your report.
-hist(gene$mean)
-hist(gene$mean, breaks = 20)
+hist(gene$Mean)
+hist(gene$Mean, breaks = 20)
 
+---------------------------------------------------------------------------------------------------------------------------------
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
-y <- read.table("growth_data.csv")
+y <- read.csv("growth_data.csv")
+#subset(y,Site=="northeast")
 head(y)
 str(y)
 
 # Ques 6: Import this csv file into an R object. What are the column names?
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
-gd <- read.table("growth_data.csv")
-head(gd)
-str(gd)
-colnames(gd)
+y <- read.table("growth_data.csv", header = TRUE, stringsAsFactors = FALSE)
+head(y)
+str(y)
+ncol(y)
+colnames(y)
 
 # ques 7: Calculate the mean and standard deviation of tree circumferance at the start and end of the study at both sides.
-NE <-subset(y,Site=="northeast")
-head(NE)
-tail(NE)
-str(NE)
-mean(NE$Circumf_2004_cm)
-mean(NE$Circumf_2019_cm)
-sd(NE$Circumf_2004_cm)
-sd(NE$Circumf_2019_cm)
+y<-read.csv("growth_data.csv")
+subset(y,Site=="northeast")
+ne <- subset(y,Site=="northeast")
+head(ne)
+tail(ne)
+str(ne)
+mean(ne$Circumf_2004_cm)
+mean(ne$Circumf_2019_cm)
+sd(ne$Circumf_2004_cm)
+sd(ne$Circumf_2019_cm)
 
+y<-read.csv("growth_data.csv")
+subset(y,Site=="southwest")
+sw <- subset(y,Site=="southwest")
+head(sw)
+tail(sw)
+str(sw)
+mean(sw$Circumf_2004_cm)
+mean(sw$Circumf_2019_cm)
+sd(sw$Circumf_2004_cm)
+sd(sw$Circumf_2019_cm)
 
 # ques 8: make a box plot of tree circumferance at the start and end of the study of both sides.
-SW <- subset(y,Site=="southwest")
-head(SW)
-tail(SW)
-str(SW)
-mean(SW$Circumf_2004_cm)
-mean(SW$Circumf_2019_cm)
-sd(SW$Circumf_2004_cm)
-sd(SW$Circumf_2019_cm)
+boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm)
+boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm)
+boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm, names = c("ne2004", "ne2019", "sw2004", "sw2019"), ylab="Circumfrence (cm)")
+boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm, names = c("ne2004", "ne2019", "sw2004", "sw2019"), ylab="Circumfrence (cm)", main="Growth at two plantation sites")
 
 # Ques 9: Calculate the mean growth over the past 10 years at each site.
 
@@ -73,6 +84,11 @@ head(sw)
 # Ques 10: Use the t.test and wilcox.test functions to estimate the p-value that the 10 year growth is different at the two sites.
 t.test(sw$growth,ne$growth)
 wilcox.test(sw$growth,ne$growth)
+<<<<<<< HEAD
 
+=======
+--------------------------------------------------------------------------------------------------------------------------------
+Part 2: Determine the limits of BLAST
+>>>>>>> d77e0fbcd170e07c230550ca62d1d15fc9086672
 
 
