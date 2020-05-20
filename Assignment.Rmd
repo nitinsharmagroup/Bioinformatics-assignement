@@ -81,14 +81,25 @@ head(ne)
 sw$growth <-sw$Circumf_2019_cm-sw$Circumf_2009_cm
 head(sw)
 
-# Ques 10: Use the t.test and wilcox.test functions to estimate the p-value that the 10 year growth is different at the two sites.
+# Ques 10: Use the t.test and wilcox.test functions to estimate the p-value that the 10 year growth is different at the two sites
+
 t.test(sw$growth,ne$growth)
 wilcox.test(sw$growth,ne$growth)
-<<<<<<< HEAD
 
 =======
 --------------------------------------------------------------------------------------------------------------------------------
 Part 2: Determine the limits of BLAST
->>>>>>> d77e0fbcd170e07c230550ca62d1d15fc9086672
+
+# Ques 1: Download the whole set of E. coli g ene DNA sequences and use gunzip to decompress. Use the makeblast() function to create a blast database. How many sequences are present in the E.coli set?
+
+# Ques 2: Download the sample fasta sequences and read them in as above. For your allocated sequence, determine the length (in bp) and the proportion of GC bases.
+
+# Ques 3: You will be provided with R functions to create BLAST databases and perform blast searches. Use blast to identify what E. coli gene your sequence matches best. Show a table of the top 3 hits including percent identity, E-value and bit scores.
+
+# Ques 4: You will be provided with a function that enables you to make a set number of point mutations to your sequence of interest. Run the function and write an R code to check the number of mismatches between the original and mutated sequence.
+
+# Ques 5: Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer.
+
+# Ques 6:  Provide a chart or table that shows how the increasing proportion of mutated bases reduces the ability for BLAST to match the gene of origin. Summarise the results in 1 to 2 sentences.
 
 
