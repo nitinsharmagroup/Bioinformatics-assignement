@@ -26,30 +26,33 @@ filtered <- subset(gene,Mean<10)
 nrow(filtered)
 
 # Ques 5: Make a histogram plot of the mean values in png format and paste it into your report.
-hist(gene$mean)
-hist(gene$mean, breaks = 20)
+hist(gene$Mean)
+hist(gene$Mean, breaks = 20)
 
-download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
-y <- read.table("growth_data.csv")
-head(y)
-str(y)
-
-# Ques 6: Import this csv file into an R object. What are the column names?
+---------------------------------------------------------------------------------------------------------------------------------
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
 gd <- read.table("growth_data.csv")
 head(gd)
 str(gd)
+
+# Ques 6: Import this csv file into an R object. What are the column names?
+download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
+gd <- read.table("growth_data.csv", header = TRUE, stringsAsFactors = FALSE)
+head(gd)
+str(gd)
+ncol(gd)
 colnames(gd)
 
+
 # ques 7: Calculate the mean and standard deviation of tree circumferance at the start and end of the study at both sides.
-NE <-subset (y,Site=="northeast")
-head(NE)
-tail(NE)
-str(NE)
-mean(NE$Circumf_2004_cm)
-mean(NE$Circumf_2019_cm)
-sd(NE$Circumf_2004_cm)
-sd(NE$Circumf_2019_cm)
+ne <- subset(gd,Site=="northeast")
+head(ne)
+tail(ne)
+str(ne)
+mean(ne$Circumf_2004_cm)
+mean(ne$Circumf_2019_cm)
+sd(ne$Circumf_2004_cm)
+sd(ne$Circumf_2019_cm)
 
 
 # ques 8: make a box plot of tree circumferance at the start and end of the study of both sides.
