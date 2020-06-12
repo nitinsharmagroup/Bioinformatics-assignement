@@ -153,7 +153,7 @@ pid(aln)
 nmismatch(aln)
 ```
 ## Question 5:Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer.
-
+```{r,chunk10}
 sequence <- function(myseq,nmut) 
 { 
   mut3 <- mutator(myseq= mydata, nmut = mutations) 
@@ -175,7 +175,7 @@ resultres
 
 # Ques 6:  Provide a chart or table that shows how the increasing proportion of mutated bases reduces the ability for BLAST to match the gene of origin. Summarise the results in 1 to 2 sentences.
 
-{r,plot3}
+```{r,plot3}
 proportions <-c(1.00, 1.00, 1.00, 0.84, 0.38, 0.04, 0.02, 0.00)
 nmut_value <-c(0,100,200,300,400,500,600,700)
 plot(nmut_value, proportions, main="Increasing no. of blast performances")
