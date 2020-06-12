@@ -1,35 +1,39 @@
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv", destfile = "gene_expression.tsv")
 
 # Ques 1: Read in the file, making the gene accession numbers the row names. Show a table of values for the first six genes
+```{r,chunk1}
 gene <- read.table("gene_expression.tsv")
 head(gene) # Show a table of values for the first six genes
 str(gene)
-
+```
 # Ques 2: Make a new column which is the mean of the other columns. Show a table of values for the first six genes.
-
+```{r,chunk2}
 gene <- read.table("gene_expression.tsv" , header = TRUE, stringsAsFactors = FALSE, row.names = 1)
 gene$Means <- rowMeans(gene)
 head(gene)
 str(gene)
-
+```
 
 # Ques 3: List the 10 genes with the highest mean expression
+```{r,chunk2}
 order(gene$Mean)
 gene[order(gene$Mean), ]
 gene[order(-gene$Mean), ]
 head(gene[order(-gene$Mean), ])
 head(gene[order(-gene$Mean), ], 10)
-
+```
 # Ques 4: Determine the number of genes with a mean <10
+```{r,chunk4}
 subset(gene,Mean<10)
 filtered <- subset(gene,Mean<10)
 nrow(filtered)
-
+```
 # Ques 5: Make a histogram plot of the mean values in png format and paste it into your report.
+```{r,chunk5}
 hist(gene$Mean)
 hist(gene$Mean, breaks = 20)
-
----------------------------------------------------------------------------------------------------------------------------------
+```
+--------------------------------------------------------------------------------------------------------------------------------
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
 y <- read.csv("growth_data.csv")
 #subset(y,Site=="northeast")
@@ -37,14 +41,16 @@ head(y)
 str(y)
 
 # Ques 6: Import this csv file into an R object. What are the column names?
+```{r,chunk6}
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", destfile = "growth_data.csv")
 y <- read.table("growth_data.csv", header = TRUE, stringsAsFactors = FALSE)
 head(y)
 str(y)
 ncol(y)
 colnames(y)
-
+```
 # ques 7: Calculate the mean and standard deviation of tree circumferance at the start and end of the study at both sides.
+```{r,chunk7}
 y<-read.csv("growth_data.csv")
 subset(y,Site=="northeast")
 ne <- subset(y,Site=="northeast")
@@ -66,27 +72,26 @@ mean(sw$Circumf_2004_cm)
 mean(sw$Circumf_2019_cm)
 sd(sw$Circumf_2004_cm)
 sd(sw$Circumf_2019_cm)
-
+```
 # ques 8: make a box plot of tree circumferance at the start and end of the study of both sides.
+```{r,chunk8}
 boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm)
 boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm)
 boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm, names = c("ne2004", "ne2019", "sw2004", "sw2019"), ylab="Circumfrence (cm)")
 boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm, names = c("ne2004", "ne2019", "sw2004", "sw2019"), ylab="Circumfrence (cm)", main="Growth at two plantation sites")
-
+```
 # Ques 9: Calculate the mean growth over the past 10 years at each site.
-
+```{r,chunk9}
 ne$growth <-ne$Circumf_2019_cm-ne$Circumf_2009_cm
 head(ne)
-
 sw$growth <-sw$Circumf_2019_cm-sw$Circumf_2009_cm
 head(sw)
-
+```
 # Ques 10: Use the t.test and wilcox.test functions to estimate the p-value that the 10 year growth is different at the two sites
-
+```{r,chunk10}
 t.test(sw$growth,ne$growth)
 wilcox.test(sw$growth,ne$growth)
-
-=======
+```
 --------------------------------------------------------------------------------------------------------------------------------
 Part 2: Determine the limits of BLAST
 
