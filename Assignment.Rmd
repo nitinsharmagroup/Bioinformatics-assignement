@@ -74,7 +74,7 @@ sd(sw$Circumf_2004_cm)
 sd(sw$Circumf_2019_cm)
 ```
 # ques 8: make a box plot of tree circumferance at the start and end of the study of both sides.
-```{r,chunk8}
+```{r,plot2}
 boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm)
 boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm)
 boxplot(ne$Circumf_2004_cm, ne$Circumf_2019_cm, sw$Circumf_2004_cm, sw$Circumf_2019_cm, names = c("ne2004", "ne2019", "sw2004", "sw2019"), ylab="Circumfrence (cm)")
