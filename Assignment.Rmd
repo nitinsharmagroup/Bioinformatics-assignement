@@ -93,9 +93,7 @@ Part 2: Determine the limits of BLAST
 # Ques 1: Download the whole set of E. coli g ene DNA sequences and use gunzip to decompress. Use the makeblast() function to create a blast database. How many sequences are present in the E.coli set?
 
 
-download.file("ftp://ftp.ensemblgenomes.org/pub/bacteria/release-42/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655/cds/Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz",
-
-      destfile = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz")
+download.file("ftp://ftp.ensemblgenomes.org/pub/bacteria/release-42/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655/cds/Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz", destfile = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz")
 
 # Using gunzip to decompress 
 R.utils::gunzip("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz", overwrite= TRUE)
@@ -131,7 +129,7 @@ source("mutblast.R")
 
 #
 myblastn_tab
-res <- myblastn_tab(myseq = myseq, db = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
+res <- myblastn_tab(myseq = mydata, db = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
 
 #
 str(res)
@@ -140,7 +138,6 @@ res
 
 The top 3 hits including percent identity = 100, E-value = 0 and bit scores = 756.
 The discovered gene is AAC76060
-
 
 ##Question 4: You will be provided with a function that enables you to make a set number of point mutations to your sequence of interest. Run the function and write an R code to check the number of mismatches between the original and mutated sequence.
 
