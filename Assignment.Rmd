@@ -123,7 +123,7 @@ download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master
 # Downloading file
 MYDATA <- read.fasta("sample.fa")
 # Saving it to mydata
-mydata <- MYDATA[[28]]
+mydata <- MYDATA[[32]]
 # Checking the str
 str(mydata)
 mydata[1:50]
@@ -142,13 +142,9 @@ source("mutblast.R")
 myblastn_tab
 res <- myblastn_tab(myseq = myseq, db = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
 
-#
-str(res)
-#
-res
 
-The top 3 hits including percent identity = 100, E-value = 0 and bit scores = 2769.
-The discovered gene is AAC75752
+The top 3 hits including percent identity = 100, E-value = 0 and bit scores = 756.
+The discovered gene is AAC76060
 
 
 ##Question 4: You will be provided with a function that enables you to make a set number of point mutations to your sequence of interest. Run the function and write an R code to check the number of mismatches between the original and mutated sequence.
