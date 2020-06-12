@@ -93,7 +93,7 @@ Part 2: Determine the limits of BLAST
 # Ques 1: Download the whole set of E. coli g ene DNA sequences and use gunzip to decompress. Use the makeblast() function to create a blast database. How many sequences are present in the E.coli set?
 
 
-download.file("ftp://ftp.ensemblgenomes.org/pub/bacteria/release-42/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655/cds/Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz",destfile = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz")
+download.file("ftp://ftp.ensemblgenomes.org/pub/bacteria/release-42/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655/cds/Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz", destfile = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz")
 
 # Using gunzip to decompress 
 R.utils::gunzip("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz", overwrite= TRUE)
@@ -107,7 +107,10 @@ makeblastdb("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa",dbtype
 
 # Ques 2: Download the sample fasta sequences and read them in as above. For your allocated sequence, determine the length (in bp) and the proportion of GC bases.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d03ebeb15d789a674d98fc351036a496e9610338
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part2_files/sample.fa",destfile = "sample.fa")
 
 # Downloading file
@@ -130,14 +133,35 @@ source("mutblast.R")
 
 #
 myblastn_tab
+<<<<<<< HEAD
 res <- myblastn_tab(myseq = myseq, db = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
 
 
 The top 3 hits including percent identity = 100, E-value = 0 and bit scores = 756.
 The discovered gene is AAC76060
+=======
+res <- myblastn_tab(myseq = mydata, db = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
 
+top3 <- res[1:3]
+top3
+>>>>>>> d03ebeb15d789a674d98fc351036a496e9610338
+
+The top 3 hits including percent identity = 100, E-value = 0 and bit scores = 756.
+The discovered gene is AAC76060
 
 ##Question 4: You will be provided with a function that enables you to make a set number of point mutations to your sequence of interest. Run the function and write an R code to check the number of mismatches between the original and mutated sequence.
+
+# mutator
+
+mydata_mut <- mutator(myseq=mydata,100)
+
+mydata_mut2 <- DNAString(c2s(mydata_mut))
+my_data <- DNAString(c2s(mydata))
+aln <- Biostrings::pairwiseAlignment(my_data,mydata_mut2)
+pid(aln)
+nmismatch(aln)
+
+
 
 ##Question 5:Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer.
 
