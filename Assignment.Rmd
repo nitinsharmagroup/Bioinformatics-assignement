@@ -149,6 +149,7 @@ my_data <- DNAString(c2s(mydata))
 aln <- Biostrings::pairwiseAlignment(my_data,mydata_mut2)
 pid(aln)
 nmismatch(aln)
+<<<<<<< HEAD
 
 ## Question 5:Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer.
 sequence <- function(myseq,nmut) 
@@ -169,13 +170,45 @@ myfunction_rep <- function(nmut) {
 myfunc(myseq = myseq,nmut = 1440)
 result <- sapply( n, myfunction_rep )
 resultres
+=======
+```
+## Question 5:Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer.
+```{r,chunk10}
+sequence <- function(myseq,nmut) 
+{ 
+  mut3 <- mutator(myseq= mydata, nmut = mutations) 
+  res <- myblastn_tab(myseq= mutseq,db= "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") 
+  if (is.null(res)) {myresulst= 0} else {myresult = 1} 
+  return(myresult)
+}
+myfunc(myseq = myseq,nmut = 1440)
+replicate(n = 100, myfunc(myseq,100))
+mean(replicate(100,myfunc(myseq,100)))
+n <-c(0,100,200,300,400,500,600,700)
+myfunction_rep <- function(nmut) {
+  mean(replicate(100, myfunc(myseq= myseq, nmut)))
+}
+myfunc(myseq = myseq,nmut = 1440)
+result <- sapply( n, myfunction_rep )
+resultres
+```
 
+# Ques 6:  Provide a chart or table that shows how the increasing proportion of mutated bases reduces the ability for BLAST to match the gene of origin. Summarise the results in 1 to 2 sentences.
+>>>>>>> 862121758732d88d7a65d169bbc31058446e5627
 
+```{r,plot3}
+proportions <-c(1.00, 1.00, 1.00, 0.84, 0.38, 0.04, 0.02, 0.00)
+nmut_value <-c(0,100,200,300,400,500,600,700)
+plot(nmut_value, proportions, main="Increasing no. of blast performances")
+
+<<<<<<< HEAD
 # Ques 6:  Provide a chart or table that shows how the increasing proportion of mutated bases reduces the ability for BLAST to match the gene of origin. Summarise the results in 1 to 2 sentences.
 proportions <-c(1.00, 1.00, 1.00, 0.84, 0.38, 0.04, 0.02, 0.00)
 nmut_value <-c(0,100,200,300,400,500,600,700)
 plot(nmut_value, proportions, main="Increasing no. of blast performances")
 
+=======
+>>>>>>> 862121758732d88d7a65d169bbc31058446e5627
 
 
 
